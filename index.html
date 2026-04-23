@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Sustainable Grids — SDG 7 | Affordable &amp; Clean Energy</title>
+  <meta name="description" content="A university engineering project reimagining affordable and clean energy through AI-driven smart grids and alternative energy harvesting — aligned with UN SDG 7." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ======== NAVIGATION ======== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">SDG<span class="logo-accent">7</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#problem">The Problem</a></li>
+        <li><a href="#solution">Our Solution</a></li>
+        <li><a href="#dashboard">Live Dashboard</a></li>
+        <li><a href="#stats">Impact</a></li>
+        <li><a href="#footer" class="nav-cta">Get Involved</a></li>
+      </ul>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======== HERO SECTION ======== -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-particles" id="hero-particles"></div>
+    <div id="three-canvas-container" class="three-container"></div>
+    <div class="hero-content">
+      <div class="hero-badge animate-on-scroll">
+        <span class="badge-dot"></span>
+        UN Sustainable Development Goal 7
+      </div>
+      <h1 class="hero-title animate-on-scroll">
+        Smart Sustainable Grids:<br />
+        <span class="hero-title-accent">The Future of SDG 7</span>
+      </h1>
+      <p class="hero-subtitle animate-on-scroll">
+        Lithium batteries are not the answer — they devastate ecosystems, generate toxic waste, and cost billions.
+        We propose an <strong>AI-driven, lithium-free</strong> energy grid that delivers clean, affordable power to every community on Earth.
+      </p>
+      <div class="hero-buttons animate-on-scroll">
+        <a href="#solution" class="btn btn-primary" id="btn-demo">
+          <span class="btn-glow"></span>
+          View Live Demo
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="game.html" class="btn btn-secondary" id="btn-game">
+          ⚡ Play Grid Game
+        </a>
+        <a href="#problem" class="btn btn-secondary" id="btn-learn">Learn More</a>
+      </div>
+      <div class="hero-scroll-indicator animate-on-scroll">
+        <div class="scroll-line"></div>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== THE PROBLEM ======== -->
+  <section id="problem" class="section section-problem">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">The Crisis</span>
+        <h2 class="section-title">Why the Current Path <span class="text-accent">Fails</span></h2>
+        <p class="section-desc">Traditional renewable energy storage relies on materials and processes that create new environmental catastrophes. Here's the harsh reality.</p>
+      </div>
+      <div class="problem-cards">
+        <!-- Card 1 -->
+        <div class="glass-card animate-on-scroll" id="card-lithium">
+          <div class="card-icon-wrapper">
+            <div class="card-icon">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                <path d="M32 8 L38 28 L52 28 L40 38 L44 56 L32 44 L20 56 L24 38 L12 28 L26 28 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="card-title">Lithium Mining Impact</h3>
+          <p class="card-text">Extracting lithium devastates ecosystems — using <strong>2.2 million litres of water</strong> per tonne. Indigenous communities are displaced, and arid landscapes are left barren and lifeless.</p>
+          <div class="card-stat">
+            <span class="stat-number">70%</span>
+            <span class="stat-label">of lithium comes from ecologically fragile zones</span>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card animate-on-scroll" id="card-ewaste">
+          <div class="card-icon-wrapper">
+            <div class="card-icon">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="12" y="12" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                <path d="M20 32 L28 40 L44 24" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="16" x2="48" y2="48" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                <line x1="48" y1="16" x2="16" y2="48" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="card-title">Toxic E-Waste Crisis</h3>
+          <p class="card-text">Over <strong>50 million tonnes</strong> of electronic waste are generated annually. Discarded batteries leach cobalt, nickel, and lead into soil and water, poisoning communities for decades.</p>
+          <div class="card-stat">
+            <span class="stat-number">50M</span>
+            <span class="stat-label">tonnes of e-waste produced every year</span>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card animate-on-scroll" id="card-cost">
+          <div class="card-icon-wrapper">
+            <div class="card-icon">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                <path d="M32 16 V48 M24 22 H38 C42 22 42 30 38 30 H24 H40 C44 30 44 38 40 38 H24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="card-title">High Storage Costs</h3>
+          <p class="card-text">Utility-scale battery storage costs up to <strong>$400/kWh</strong>, making clean energy unaffordable for developing nations — the very communities SDG 7 aims to uplift.</p>
+          <div class="card-stat">
+            <span class="stat-number">$400</span>
+            <span class="stat-label">per kWh — far from "affordable"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== THE SOLUTION ======== -->
+  <section id="solution" class="section section-solution">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Our Innovation</span>
+        <h2 class="section-title">A Smarter Way to <span class="text-accent">Power the World</span></h2>
+        <p class="section-desc">We combine cutting-edge AI with alternative energy harvesting to build a truly sustainable grid — no lithium required.</p>
+      </div>
+      <div class="solution-grid">
+        <!-- Feature 1 -->
+        <div class="solution-feature animate-on-scroll" id="feature-ai">
+          <div class="feature-visual">
+            <div class="feature-icon-ring">
+              <div class="feature-icon-inner">
+                <!-- Animated brain/circuit icon -->
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-animated">
+                  <circle cx="40" cy="40" r="6" fill="currentColor" class="pulse-dot"/>
+                  <circle cx="40" cy="40" r="18" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" class="orbit-ring"/>
+                  <circle cx="40" cy="40" r="30" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6" class="orbit-ring orbit-ring-2"/>
+                  <circle cx="40" cy="22" r="3" fill="currentColor" opacity="0.7" class="orbit-dot"/>
+                  <circle cx="58" cy="40" r="3" fill="currentColor" opacity="0.7" class="orbit-dot orbit-dot-2"/>
+                  <circle cx="25" cy="55" r="3" fill="currentColor" opacity="0.7" class="orbit-dot orbit-dot-3"/>
+                  <line x1="40" y1="40" x2="40" y2="22" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                  <line x1="40" y1="40" x2="58" y2="40" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                  <line x1="40" y1="40" x2="25" y2="55" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="feature-content">
+            <h3 class="feature-title">AI Load Balancing</h3>
+            <p class="feature-desc">Our neural network predicts energy demand in real-time, dynamically routing power across the grid to eliminate waste and prevent blackouts. The system learns and adapts — getting smarter every second.</p>
+            <ul class="feature-list">
+              <li><span class="check">✓</span> Real-time demand forecasting</li>
+              <li><span class="check">✓</span> Autonomous fault detection</li>
+              <li><span class="check">✓</span> Zero-waste distribution</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Feature 2 -->
+        <div class="solution-feature solution-feature-reverse animate-on-scroll" id="feature-harvest">
+          <div class="feature-visual">
+            <div class="feature-icon-ring">
+              <div class="feature-icon-inner">
+                <!-- Animated energy/wave icon -->
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-animated">
+                  <path d="M15 40 Q25 20 35 40 Q45 60 55 40 Q65 20 75 40" stroke="currentColor" stroke-width="2" fill="none" class="wave-path"/>
+                  <path d="M15 40 Q25 25 35 40 Q45 55 55 40 Q65 25 75 40" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5" class="wave-path wave-path-2"/>
+                  <circle cx="40" cy="40" r="8" stroke="currentColor" stroke-width="2" fill="none" class="pulse-ring"/>
+                  <circle cx="40" cy="40" r="4" fill="currentColor" class="pulse-dot"/>
+                  <path d="M36 36 L40 28 L44 36 L40 44 Z" fill="currentColor" opacity="0.6" class="diamond-spin"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="feature-content">
+            <h3 class="feature-title">Alternative Energy Harvesting</h3>
+            <p class="feature-desc">Beyond solar and wind — we integrate piezoelectric floors, thermoelectric generators, and RF energy harvesting to capture ambient energy that would otherwise be lost forever.</p>
+            <ul class="feature-list">
+              <li><span class="check">✓</span> Piezoelectric kinetic capture</li>
+              <li><span class="check">✓</span> Thermoelectric waste-heat recovery</li>
+              <li><span class="check">✓</span> RF ambient energy harvesting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SMART GRID AI DASHBOARD ======== -->
+  <section id="dashboard" class="section section-dashboard">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Live Simulation</span>
+        <h2 class="section-title">Smart Grid AI <span class="text-accent">Load Balancing</span></h2>
+        <p class="section-desc">Watch the AI redistribute electricity across Egyptian governorates in real-time. Drag the time slider to simulate 24 hours of intelligent energy routing — zero lithium required.</p>
+      </div>
+
+      <!-- TIME SLIDER -->
+      <div class="dashboard-time-control animate-on-scroll" id="time-control">
+        <div class="time-display">
+          <div class="time-icon">🕐</div>
+          <span class="time-label">Simulation Time</span>
+          <span class="time-value" id="time-value">12:00</span>
+          <span class="time-period" id="time-period">PM</span>
+        </div>
+        <div class="slider-wrapper">
+          <input type="range" id="time-slider" class="time-slider" min="0" max="1439" value="720" step="1" />
+          <div class="slider-ticks">
+            <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:59</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- METRIC CARDS -->
+      <div class="dashboard-metrics animate-on-scroll">
+        <div class="metric-card" id="metric-efficiency">
+          <div class="metric-icon">⚡</div>
+          <div class="metric-info">
+            <span class="metric-value" id="val-efficiency">99.8%</span>
+            <span class="metric-label">Grid Efficiency</span>
+          </div>
+          <div class="metric-status metric-status-ok">Optimal</div>
+        </div>
+        <div class="metric-card" id="metric-lithium">
+          <div class="metric-icon">🔋</div>
+          <div class="metric-info">
+            <span class="metric-value" id="val-lithium">100%</span>
+            <span class="metric-label">Lithium Saved</span>
+          </div>
+          <div class="metric-status metric-status-ok">Zero Usage</div>
+        </div>
+        <div class="metric-card" id="metric-routing">
+          <div class="metric-icon">🧠</div>
+          <div class="metric-info">
+            <span class="metric-value" id="val-routing">3</span>
+            <span class="metric-label">Active Routes</span>
+          </div>
+          <div class="metric-status metric-status-ai">AI Active</div>
+        </div>
+        <div class="metric-card" id="metric-savings">
+          <div class="metric-icon">💰</div>
+          <div class="metric-info">
+            <span class="metric-value" id="val-savings">$2.4M</span>
+            <span class="metric-label">Daily Savings</span>
+          </div>
+          <div class="metric-status metric-status-ok">+12%</div>
+        </div>
+      </div>
+
+      <!-- AI ROUTING VISUALIZER -->
+      <div class="dashboard-visualizer animate-on-scroll" id="ai-visualizer">
+        <div class="visualizer-header">
+          <h3 class="visualizer-title">AI Energy Routing — Egypt Grid</h3>
+          <div class="ai-status" id="ai-status">
+            <span class="ai-dot"></span>
+            <span class="ai-text">AI Smart Routing Active</span>
+          </div>
+        </div>
+        <div class="grid-map" id="grid-map">
+          <!-- SVG connecting lines -->
+          <svg class="grid-lines" id="grid-lines" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="flow-green" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#10b981" stop-opacity="0.1"/>
+                <stop offset="50%" stop-color="#00ff88" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#10b981" stop-opacity="0.1"/>
+              </linearGradient>
+              <linearGradient id="flow-orange" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.1"/>
+                <stop offset="50%" stop-color="#f97316" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
+              </linearGradient>
+              <filter id="glow-filter">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <!-- Connection paths (drawn by JS) -->
+            <g id="connection-lines"></g>
+            <!-- Energy flow particles (animated by JS) -->
+            <g id="flow-particles"></g>
+          </svg>
+
+          <!-- Governorate Nodes -->
+          <div class="gov-node" id="node-cairo" data-gov="cairo">
+            <div class="node-ring"><div class="node-inner">
+              <span class="node-emoji">🏛️</span>
+            </div></div>
+            <div class="node-label">Cairo</div>
+            <div class="node-tag" id="tag-cairo">Balanced</div>
+            <div class="node-power" id="power-cairo">2,400 MW</div>
+          </div>
+
+          <div class="gov-node" id="node-alex" data-gov="alex">
+            <div class="node-ring"><div class="node-inner">
+              <span class="node-emoji">🌊</span>
+            </div></div>
+            <div class="node-label">Alexandria</div>
+            <div class="node-tag" id="tag-alex">Balanced</div>
+            <div class="node-power" id="power-alex">1,200 MW</div>
+          </div>
+
+          <div class="gov-node" id="node-aswan" data-gov="aswan">
+            <div class="node-ring"><div class="node-inner">
+              <span class="node-emoji">☀️</span>
+            </div></div>
+            <div class="node-label">Aswan</div>
+            <div class="node-tag" id="tag-aswan">Surplus</div>
+            <div class="node-power" id="power-aswan">3,800 MW</div>
+          </div>
+
+          <div class="gov-node" id="node-redsea" data-gov="redsea">
+            <div class="node-ring"><div class="node-inner">
+              <span class="node-emoji">🏖️</span>
+            </div></div>
+            <div class="node-label">Red Sea</div>
+            <div class="node-tag" id="tag-redsea">Balanced</div>
+            <div class="node-power" id="power-redsea">600 MW</div>
+          </div>
+
+          <!-- Central AI Hub -->
+          <div class="ai-hub" id="ai-hub">
+            <div class="ai-hub-ring"></div>
+            <div class="ai-hub-core">
+              <span>AI</span>
+            </div>
+            <div class="ai-hub-label">Neural Router</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEMAND vs SUPPLY CHART -->
+      <div class="dashboard-chart animate-on-scroll" id="chart-section">
+        <div class="chart-header">
+          <h3 class="chart-title">Demand vs Supply — Real-Time</h3>
+          <div class="chart-legend">
+            <span class="legend-item"><span class="legend-dot legend-demand"></span>Demand (MW)</span>
+            <span class="legend-item"><span class="legend-dot legend-supply"></span>Supply (MW)</span>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="demand-supply-chart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======== INTERACTIVE STATS ======== -->
+  <section id="stats" class="section section-stats">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Our Impact</span>
+        <h2 class="section-title">Numbers That <span class="text-accent">Matter</span></h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card animate-on-scroll" id="stat-clean">
+          <div class="stat-ring">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" stroke="rgba(34,197,94,0.15)" stroke-width="6" fill="none"/>
+              <circle cx="60" cy="60" r="54" stroke="url(#grad-stat)" stroke-width="6" fill="none" stroke-dasharray="339.292" stroke-dashoffset="339.292" stroke-linecap="round" class="stat-progress" data-progress="100"/>
+            </svg>
+            <defs>
+              <linearGradient id="grad-stat" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#22c55e"/>
+                <stop offset="100%" style="stop-color:#10b981"/>
+              </linearGradient>
+            </defs>
+          </div>
+          <div class="stat-value" data-target="100" data-suffix="%">0%</div>
+          <div class="stat-label">Clean Energy</div>
+        </div>
+        <div class="stat-card animate-on-scroll" id="stat-lithium">
+          <div class="stat-ring">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" stroke="rgba(34,197,94,0.15)" stroke-width="6" fill="none"/>
+              <circle cx="60" cy="60" r="54" stroke="url(#grad-stat)" stroke-width="6" fill="none" stroke-dasharray="339.292" stroke-dashoffset="339.292" stroke-linecap="round" class="stat-progress" data-progress="0"/>
+            </svg>
+          </div>
+          <div class="stat-value" data-target="0" data-suffix="%">0%</div>
+          <div class="stat-label">Lithium Used</div>
+        </div>
+        <div class="stat-card animate-on-scroll" id="stat-power">
+          <div class="stat-ring">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" stroke="rgba(34,197,94,0.15)" stroke-width="6" fill="none"/>
+              <circle cx="60" cy="60" r="54" stroke="url(#grad-stat)" stroke-width="6" fill="none" stroke-dasharray="339.292" stroke-dashoffset="339.292" stroke-linecap="round" class="stat-progress" data-progress="100"/>
+            </svg>
+          </div>
+          <div class="stat-value" data-target="24" data-suffix="/7">0/7</div>
+          <div class="stat-label">Uninterrupted Power</div>
+        </div>
+        <div class="stat-card animate-on-scroll" id="stat-efficiency">
+          <div class="stat-ring">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" stroke="rgba(34,197,94,0.15)" stroke-width="6" fill="none"/>
+              <circle cx="60" cy="60" r="54" stroke="url(#grad-stat)" stroke-width="6" fill="none" stroke-dasharray="339.292" stroke-dashoffset="339.292" stroke-linecap="round" class="stat-progress" data-progress="97"/>
+            </svg>
+          </div>
+          <div class="stat-value" data-target="97" data-suffix="%">0%</div>
+          <div class="stat-label">Grid Efficiency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="footer-logo">⚡ SDG<span class="logo-accent">7</span></span>
+          <p class="footer-tagline">Engineering a sustainable future — one grid at a time.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Project</h4>
+            <a href="#problem">The Problem</a>
+            <a href="#solution">Our Solution</a>
+            <a href="#stats">Impact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="https://sdgs.un.org/goals/goal7" target="_blank" rel="noopener">UN SDG 7</a>
+            <a href="#">Research Paper</a>
+            <a href="#">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong>Team Nexus Grid</strong> · Faculty of Engineering</p>
+        <p class="footer-university">Built for the Sustainable Innovation Capstone · University of Technology</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
