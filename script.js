@@ -54,15 +54,15 @@ function initScrollAnimations() {
 function initParticles() {
   const container = document.getElementById('hero-particles');
   if (!container) return;
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 50; i++) {
     const p = document.createElement('div');
     p.classList.add('particle');
     const size = Math.random() * 4 + 2;
     p.style.width = size + 'px';
     p.style.height = size + 'px';
     p.style.left = Math.random() * 100 + '%';
-    p.style.animationDuration = (Math.random() * 10 + 8) + 's';
-    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.animationDuration = (Math.random() * 6 + 4) + 's';
+    p.style.animationDelay = (Math.random() * 5 - 5) + 's';
     container.appendChild(p);
   }
 }
